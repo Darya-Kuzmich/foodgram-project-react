@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import ValidationError
-from django.utils.translation import gettext_lazy as _
 from django.db.models import CheckConstraint, F, Q, UniqueConstraint
 from django.db import models
 
@@ -11,24 +10,24 @@ class User(AbstractUser):
     username_validator = UsernameValidators()
 
     email = models.EmailField(
-        verbose_name=_('E-mail'),
+        verbose_name='E-mail',
         unique=True,
     )
     username = models.CharField(
-        verbose_name=_('Логин'),
+        verbose_name='Логин',
         max_length=150,
         unique=True,
         validators=[username_validator],
         error_messages={
-            'unique': _('Пользователь с таким логином уже существует'),
+            'unique': 'Пользователь с таким логином уже существует',
         },
     )
     first_name = models.CharField(
-        verbose_name=_('Имя'),
+        verbose_name='Имя',
         max_length=150
     )
     last_name = models.CharField(
-        verbose_name=_('Фамилия'),
+        verbose_name='Фамилия',
         max_length=150
     )
 
@@ -76,5 +75,5 @@ class Subscription(models.Model):
     def clean(self):
         if self.subscriber == self.author:
             raise ValidationError(
-                _('Пользователь не может подписаться сам на себя.')
+                'Пользователь не может подписаться сам на себя.'
             )

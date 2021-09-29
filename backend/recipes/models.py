@@ -3,8 +3,7 @@ from colorfield.fields import ColorField
 from django.db import models
 from django.db.models import UniqueConstraint
 from django.utils.text import slugify
-from django.utils.translation import gettext_lazy as _
-from django.core.validators import MinValueValidator, validate_unicode_slug, ValidationError
+from django.core.validators import MinValueValidator, validate_unicode_slug
 
 from users.models import User
 from recipes.translation import get_translate_ru_to_en, get_alternative
@@ -16,7 +15,7 @@ class Tag(models.Model):
         max_length=200,
         unique=True,
         error_messages={
-            'unique': _('Тег с таким названием и слагом уже существует'),
+            'unique': 'Тег с таким названием и слагом уже существует',
         },
     )
     color = ColorField(
@@ -94,9 +93,9 @@ class Ingredient(models.Model):
     MEASUREMENT_UNIT_CHOICES = (
         ('г', 'г'),
         ('кг', 'кг'),
-        ('шт', 'шт'),
-        ('чл', 'ч. л'),
-        ('ст. л', 'ст. л'),
+        ('шт.', 'шт.'),
+        ('ч. л.', 'ч. л.'),
+        ('ст. л.', 'ст. л.'),
         ('мл', 'мл'),
         ('л', 'л'),
         ('стакан', 'стакан'),
@@ -110,6 +109,7 @@ class Ingredient(models.Model):
         ('банка', 'банка'),
         ('упаковка', 'упаковка'),
         ('батон', 'батон'),
+        ('капля', 'капля'),
     )
     name = models.CharField(
         verbose_name='Ингредиент',
