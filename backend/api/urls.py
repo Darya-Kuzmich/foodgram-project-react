@@ -14,7 +14,7 @@ router = DefaultRouter()
 router.register('users', CustomUserViewSet)
 router.register('tags', TagViewSet)
 router.register('ingredients', IngredientViewSet)
-router.register('recipes', RecipeViewSet, basename='recipes')
+router.register('recipes', RecipeViewSet)
 
 urlpatterns = [
     path('recipes/download_shopping_cart/',

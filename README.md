@@ -1,5 +1,6 @@
+Workflow status
+![workflow](https://github.com/Darya-Kuzmich/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg)
+
 # FOODGRAM
 ## Первый этап.
 
-## Файл views.py в директории foodgram нужен на данном этапе для локальной работы с проектом.
-## В дальнейшем он будет удалён.

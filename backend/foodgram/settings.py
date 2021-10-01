@@ -6,14 +6,18 @@ env = environ.Env()
 environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-ROOT_DIR = BASE_DIR.parent
-FRONTEND_DIR = ROOT_DIR.joinpath('frontend')
+#ROOT_DIR = BASE_DIR.parent
+# FRONTEND_DIR = ROOT_DIR.joinpath('frontend')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS').split(' ')
+
+CORS_ALLOWED_ORIGINS = ['http://127.0.0.1:8000', 'http://localhost:8000']
+
+CORS_URLS_REGEX = r'^/api/.*$'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -49,7 +53,7 @@ ROOT_URLCONF = 'foodgram.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [FRONTEND_DIR.joinpath('build')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,9 +110,9 @@ STATIC_ROOT = BASE_DIR.joinpath('static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media')
 
-STATICFILES_DIRS = (
-    (FRONTEND_DIR.joinpath('build/static')),
-)
+#STATICFILES_DIRS = (
+#    (FRONTEND_DIR.joinpath('build/static')),
+#)
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -144,6 +148,6 @@ DJOSER = {
 
 AUTH_USER_MODEL = 'users.User'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
+#CORS_ALLOWED_ORIGINS = [
+#    "http://localhost:3000",
+#]
