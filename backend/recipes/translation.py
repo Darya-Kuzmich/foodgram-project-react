@@ -20,8 +20,7 @@ def all_possible_translations(string):
         else:
             out.append(elem)
 
-    possible_translations = [item for item in out if isinstance(item, str)]
-    return possible_translations
+    return [item for item in out if isinstance(item, str)]
 
 
 def get_alternative(string):

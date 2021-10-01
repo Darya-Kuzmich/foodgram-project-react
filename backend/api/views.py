@@ -20,7 +20,6 @@ from recipes.models import (
     Recipe,
     Favorite,
     ShoppingCart,
-    IngredientAmount,
 )
 
 from .serializers import (

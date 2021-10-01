@@ -6,8 +6,6 @@ env = environ.Env()
 environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-#ROOT_DIR = BASE_DIR.parent
-# FRONTEND_DIR = ROOT_DIR.joinpath('frontend')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
@@ -110,10 +108,6 @@ STATIC_ROOT = BASE_DIR.joinpath('static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR.joinpath('media')
 
-#STATICFILES_DIRS = (
-#    (FRONTEND_DIR.joinpath('build/static')),
-#)
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -147,7 +141,3 @@ DJOSER = {
 }
 
 AUTH_USER_MODEL = 'users.User'
-
-#CORS_ALLOWED_ORIGINS = [
-#    "http://localhost:3000",
-#]
