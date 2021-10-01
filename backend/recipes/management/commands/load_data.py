@@ -9,8 +9,8 @@ from recipes.models import Ingredient
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        DATA = Path.cwd().parent.joinpath('data/ingredients.csv')
-        with DATA.open(encoding='utf-8') as file:
+        data = Path.cwd().parent.joinpath('data/ingredients.csv')
+        with data.open(encoding='utf-8') as file:
             file_reader = csv.reader(file)
             for row in file_reader:
                 name, unit = row
