@@ -83,7 +83,7 @@ jobs:
             sudo docker pull 881212/foodgram_frontend
             sudo docker-compose stop
             sudo docker-compose rm -f
-            sudo docker system prune --volumes
+            sudo docker system prune -f --volumes
             touch .env
             echo DB_ENGINE=${{ secrets.SECRET_KEY }} >> .env
             echo DB_ENGINE=${{ secrets.DJANGO_ALLOWED_HOSTS }} >> .env
