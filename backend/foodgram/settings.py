@@ -99,11 +99,11 @@ USE_L10N = True
 
 USE_TZ = False
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR.joinpath('static')
+STATIC_URL = '/backend_static/'
+STATIC_ROOT = BASE_DIR.joinpath('backend_static')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR.joinpath('media')
+MEDIA_URL = '/backend_media/'
+MEDIA_ROOT = BASE_DIR.joinpath('backend_media')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
