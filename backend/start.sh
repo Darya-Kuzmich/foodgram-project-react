@@ -6,4 +6,4 @@ python manage.py migrate --noinput
 echo "collecting static"
 python manage.py collectstatic --no-input
 echo "starting gunicorn"
-exec gunicorn foodgram.wsgi:application --bind 0.0.0.0:8000
+gunicorn foodgram.wsgi:application --bind 0.0.0.0:8000
