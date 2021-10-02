@@ -28,7 +28,7 @@ Workflow status
 Для работы с проектом необходимо установить Docker https://docs.docker.com/engine/install/
 
 Клонировать репозиторий:
--git clone https://github.com/Darya-Kuzmich/foodgram-project-react.git
+- git clone https://github.com/Darya-Kuzmich/foodgram-project-react.git
 
 В директории foodgram-project-react/backend/foodgram создать файл .env и пометсить туда переменные в формате имя_переменной=значение. Пример файла:
 - SECRET_KEY=django_secret_key
@@ -42,7 +42,7 @@ Workflow status
 
 Далее в директории foodgram-project-react/infra выполнить команду:
 - docker-compose up -d --build
-Создание миграций и collectstatic будут выполнены автоматрически.
+- Создание миграций и collectstatic будут выполнены автоматрически.
 Создание суперпользователя:
 - sudo docker exec backend python manage.py createsuperuser
 Загрузка данных (ингредиенты):
