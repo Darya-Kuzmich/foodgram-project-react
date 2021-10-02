@@ -21,7 +21,6 @@ services:
     volumes:
       - static_value:/code/backend_static/
       - media_value:/code/backend_media/
-      - ./db.json:/code/db.json
     depends_on:
       - db
     env_file:
