@@ -138,5 +138,3 @@ package-lock.json
 
 fixtures/
 db.json
-
-docker-compose.yml
