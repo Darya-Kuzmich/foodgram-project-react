@@ -4,16 +4,16 @@ Workflow status
 ## FOODGRAM
 Сайт, где пользователи могут делится своими рецептами и подписываться на других пользователей, добавлять понравившиеся рецепты в избранное и список покупок, который можно будет скачать в формате PDF.
 
-Сайт можно посмотреть по адресу http://84.201.157.102
-Админка http://84.201.157.102/admin
+- Сайт можно посмотреть по адресу http://84.201.157.102
+- Админка http://84.201.157.102/admin
 
 Суперпользователь:
-login: admin@example.com
-password: You_should_Not_Pass
+- login: admin@example.com
+- password: You_should_Not_Pass
 
 Тестовый пользователь:
-login: futurama@example.com
-password: futurama12082021
+- login: futurama@example.com
+- password: futurama12082021
 
 ### Технологии
 - Python 3.8
@@ -28,7 +28,7 @@ password: futurama12082021
 Для работы с проектом необходимо установить Docker https://docs.docker.com/engine/install/
 
 Клонировать репозиторий:
-- https://github.com/Darya-Kuzmich/foodgram-project-react.git
+-git clone https://github.com/Darya-Kuzmich/foodgram-project-react.git
 
 В директории foodgram-project-react/backend/foodgram создать файл .env и пометсить туда переменные в формате имя_переменной=значение. Пример файла:
 - SECRET_KEY=django_secret_key
