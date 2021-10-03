@@ -44,7 +44,6 @@ Workflow status
 - docker-compose up -d --build
 - Создание миграций и collectstatic будут выполнены автоматрически.
 - Создание суперпользователя: sudo docker exec backend python manage.py createsuperuser
-- Загрузка данных (ингредиенты): sudo docker exec backend python manage.py load_data
 
 ### Разработчик:
 Проект выполнила Кузьмич Дарья в рамках учебной программы по backend-разработке Яндекс.Практикум.
