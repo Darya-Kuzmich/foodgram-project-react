@@ -30,7 +30,7 @@ Workflow status
 Клонировать репозиторий:
 - git clone https://github.com/Darya-Kuzmich/foodgram-project-react.git
 
-В директории foodgram-project-react/backend/foodgram создать файл .env и пометсить туда переменные в формате имя_переменной=значение. Пример файла:
+В директории foodgram-project-react/infra создать файл .env и пометсить туда переменные в формате имя_переменной=значение. Пример файла:
 - SECRET_KEY=django_secret_key
 - DJANGO_ALLOWED_HOSTS=django_allowed_hosts
 - DB_ENGINE=django.db.backends.postgresql
@@ -43,9 +43,9 @@ Workflow status
 Далее в директории foodgram-project-react/infra выполнить команду:
 - docker-compose up -d --build
 - Создание миграций и collectstatic будут выполнены автоматрически.
-Создание суперпользователя:
+- Создание суперпользователя:
 - sudo docker exec backend python manage.py createsuperuser
-Загрузка данных (ингредиенты):
+- Загрузка данных (ингредиенты):
 - sudo docker exec backend python manage.py load_data
 
 ### Разработчик:
