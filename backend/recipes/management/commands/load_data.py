@@ -9,7 +9,7 @@ from recipes.models import Ingredient
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        data = Path.cwd().parent.joinpath('data/ingredients.csv')
+        data = Path.cwd().joinpath('fixtures/ingredients.csv')
         with data.open(encoding='utf-8') as file:
             file_reader = csv.reader(file)
             for row in file_reader:

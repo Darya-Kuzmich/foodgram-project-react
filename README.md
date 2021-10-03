@@ -2,7 +2,7 @@ Workflow status
 ![workflow](https://github.com/Darya-Kuzmich/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg)
 
 ## FOODGRAM
-Сайт, где пользователи могут делится своими рецептами и подписываться на других пользователей, добавлять понравившиеся рецепты в избранное и список покупок, который можно будет скачать в формате PDF.
+Сайт, где пользователи могут делиться своими рецептами и подписываться на других пользователей, добавлять понравившиеся рецепты в избранное и список покупок, который можно будет скачать в формате PDF.
 
 - Сайт можно посмотреть по адресу http://84.201.157.102
 - Админка http://84.201.157.102/admin
@@ -30,7 +30,7 @@ Workflow status
 Клонировать репозиторий:
 - git clone https://github.com/Darya-Kuzmich/foodgram-project-react.git
 
-В директории foodgram-project-react/infra создать файл .env и пометсить туда переменные в формате имя_переменной=значение. Пример файла:
+В директории foodgram-project-react/backend/foodgram создать файл .env и пометсить туда переменные в формате имя_переменной=значение. Пример файла:
 - SECRET_KEY=django_secret_key
 - DJANGO_ALLOWED_HOSTS=django_allowed_hosts
 - DB_ENGINE=django.db.backends.postgresql
@@ -43,7 +43,9 @@ Workflow status
 Далее в директории foodgram-project-react/infra выполнить команду:
 - docker-compose up -d --build
 - Создание миграций и collectstatic будут выполнены автоматрически.
-- Создание суперпользователя: sudo docker exec backend python manage.py createsuperuser
+- Создание суперпользователя: sudo docker exec infra_backend_1 python manage.py createsuperuser
+- Загрузка фикстур: sudo docker exec infra_backend_1 python manage.py load_data
+- Для корректной работы сайта нужно через админку создать пару тегов.
 
 ### Разработчик:
 Проект выполнила Кузьмич Дарья в рамках учебной программы по backend-разработке Яндекс.Практикум.

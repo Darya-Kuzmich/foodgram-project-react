@@ -61,7 +61,6 @@ class AuthorSerializer(CustomUserSerializer):
 
 
 class SubscriptionSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Subscription
         fields = '__all__'
@@ -109,11 +108,10 @@ class IngredientAmountGetSerializer(serializers.ModelSerializer):
 
 class IngredientAmountPostSerializer(serializers.Serializer):
     id = serializers.IntegerField(write_only=True, min_value=1)
-    amount = serializers.IntegerField(write_only=True, min_value=1)
+    amount = serializers.IntegerField(write_only=True)
 
 
 class RecipeSubscriptionSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Recipe
         fields = ('id', 'name', 'image', 'cooking_time')
@@ -166,6 +164,18 @@ class RecipePostSerializer(serializers.ModelSerializer):
         model = Recipe
         fields = ('ingredients', 'tags', 'image', 'name', 'text',
                   'cooking_time')
+
+    def validate(self, data):
+        ingredients = self.initial_data.get('ingredients')
+        for ingredient_elements in ingredients:
+            if int(ingredient_elements['amount']) < 1:
+                raise serializers.ValidationError(
+                    {'ingredients': (
+                        'Количество должно быть больше 1.'
+                    )
+                    }
+                )
+        return data
 
     def create_ingredient_elements(self, ingredients_data, recipe):
         ingredients = []
@@ -221,7 +231,6 @@ class RecipePostSerializer(serializers.ModelSerializer):
 
 
 class FavoriteSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Favorite
         fields = '__all__'
@@ -239,7 +248,6 @@ class FavoriteSerializer(serializers.ModelSerializer):
 
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = ShoppingCart
         fields = '__all__'
